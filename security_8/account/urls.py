@@ -8,9 +8,10 @@ from . import views
 #     url(r'^logout/$', views.user_logout, name='logout'),
 # ]
 
-from django.contrib.auth import views as auth_Views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^login/$', auth_Views.logout, {'next_page' : '/'}),
-    url(r'^logout/$', auth_Views.login, {'template_name' : 'account/login.html'}),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^login/$', auth_views.logout, {'next_page' : '/'}),
+    url(r'^logout/$', auth_views.login, {'template_name' : 'account/login.html'}),
 ]
