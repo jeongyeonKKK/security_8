@@ -3,29 +3,9 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-    <!-- {% if user.is_authenticated %}
-        <form action="." method="post">
-        {% csrf_token %}
-        <p><input type="submit" value="Logout"></p>
-        </form>
 
-    {% else %}
-        <h1>Log-in</h1>
-        <p>Use the following form to login</p>
-        <form action="." method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Login"></p>
-        </form>
-    {% endif %} -->
-
-
-
-      <!-- 로그인 되어있는 경우 -->
+    <!-- Login -->
     {% if user.is_active %}
-        <!-- <h2> Welcome, {{user.username}} </h2>
-        <a href="{% url 'logout' %}">로그아웃</a>
-        <a href="{% url 'chat:index' %}">채팅</a> -->
 
         <script type="text/javascript">
             var oldUrl = '{% url 'login' %}';
@@ -36,14 +16,14 @@
             }
         </script>
         
-    <!-- 로그인 되어있지 않은 경우 -->
+    <!-- Logout -->
     {% else %}
         {% if form.errors %}
-            <!-- 에러발생시 -->
+            <!-- Login Error -->
             <p>ID나 비밀번호가 일치하지 않습니다.</p>
         {% endif %}
 
-        <!-- 로그인 폼 -->
+        <!-- Login Form -->
         <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <input type="hidden" name="next" value="" />
@@ -51,7 +31,6 @@
         <button type="submit">로그인</button>
         </form>
 
-        <!-- 회원가입 -->
         <a href="{% url 'signup' %}">회원가입</a>
     {% endif %}
 

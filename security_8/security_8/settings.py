@@ -118,23 +118,23 @@ USE_L10N = True
 USE_TZ = True
 
 
+# User Defined
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
 
+# Static Directories
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
-
-
-# Auth settings
+# Authentication Settings
 LOGIN_REDIRECT_URL = '/account/login/'
-
-
 
 # Find templates in the same folder as settings.py.
 SETTINGS_PATH = os.path.realpath(os.path.dirname(__file__))
 
+# Templates Directories
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
@@ -142,14 +142,7 @@ TEMPLATE_DIRS = (
     os.path.join(SETTINGS_PATH, 'templates'),
 )
 
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
-
-
-
-# Channels
+# Channels Settings
 ASGI_APPLICATION = 'security_8.routing.application'
 CHANNEL_LAYERS = {
     'default': {
