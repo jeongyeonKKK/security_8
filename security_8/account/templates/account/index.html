@@ -1,0 +1,15 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+
+<h1>Security_8 Main Page</h1>
+
+{% if user.is_active %}
+    <h2> Welcome, {{user.username}} </h2>
+    <a href="{% url 'logout' %}">로그아웃</a>
+
+{% else %}
+    <h2> You're logged out </h2>
+    <a href="{% url 'login' %}">로그인</a>
+{% endif %}
+
+{% endblock %}

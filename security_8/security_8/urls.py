@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^account/', include('django.contrib.auth.urls')),
     url(r'^account/signup/$', auth_views.CreateUSerView.as_view(), name='signup'),
     url(r'^account/signup/done/$', auth_views.RegisteredView.as_view(), name='create_user_done'),
+    url(r'^chat/', include('chat.urls')),
 ]
