@@ -6,10 +6,12 @@
 {% if user.is_active %}
     <h2> Welcome, {{user.username}} </h2>
     <a href="{% url 'logout' %}">로그아웃</a>
+    <a href="{% url 'chat:index' %}">채팅</a>
 
 {% else %}
     <h2> You're logged out </h2>
     <a href="{% url 'login' %}">로그인</a>
+    <a href="{% url 'signup' %}">회원가입</a>
 {% endif %}
 
 {% endblock %}

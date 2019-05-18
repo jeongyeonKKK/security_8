@@ -23,9 +23,19 @@
 
       <!-- 로그인 되어있는 경우 -->
     {% if user.is_active %}
-        <h2> Welcome, {{user.username}} </h2>
+        <!-- <h2> Welcome, {{user.username}} </h2>
         <a href="{% url 'logout' %}">로그아웃</a>
+        <a href="{% url 'chat:index' %}">채팅</a> -->
 
+        <script type="text/javascript">
+            var oldUrl = '{% url 'login' %}';
+            var changeUrl = '{% url 'root' %}';
+            var urlString = location.href;
+            if (urlString.match(oldUrl)){
+                window.location.replace(urlString.replace(oldUrl, changeUrl));
+            }
+        </script>
+        
     <!-- 로그인 되어있지 않은 경우 -->
     {% else %}
         {% if form.errors %}

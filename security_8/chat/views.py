@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 import json
+from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
