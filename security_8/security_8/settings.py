@@ -25,7 +25,8 @@ SECRET_KEY = '58%jivxj%nzo3z+3(o4g&ly&q5u2=mr7=b(ns&mfszj21v(qmq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+]
 
 
 # Application definition
@@ -34,6 +35,7 @@ INSTALLED_APPS = [
     'channels',
     'account',
     'chat',
+    'sslserver',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -118,7 +120,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# User Defined
+## User Defined ##
 
 
 # Static files (CSS, JavaScript, Images)
@@ -152,3 +154,11 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
