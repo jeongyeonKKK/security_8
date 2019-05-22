@@ -4,6 +4,7 @@
 
 {% block content %}
 
+{% if user.is_active %}
     <textarea id="chat-log"></textarea><br/>
     <input id="chat-message-input" type = "text"/><br/>
     <input id="chat-message-submit" type = "button" value="Send"/>
@@ -42,5 +43,9 @@
             messageInputDom.value = '';
         };
     </script>
+{% else %}
+    <h2> You're logged out </h2>
+    <a href="{% url 'login' %}">로그인</a>
+{% endif %}
 
 {% endblock %}

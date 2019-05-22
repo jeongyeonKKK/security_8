@@ -26,6 +26,7 @@ SECRET_KEY = '58%jivxj%nzo3z+3(o4g&ly&q5u2=mr7=b(ns&mfszj21v(qmq'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
 ]
 
 
@@ -123,6 +124,14 @@ USE_TZ = True
 ## User Defined ##
 
 
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATIC_URL = '/static/'
@@ -154,11 +163,3 @@ CHANNEL_LAYERS = {
         },
     },
 }
-
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True

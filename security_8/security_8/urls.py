@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from account import views as auth_views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', auth_views.IndexView.as_view(), name='root'),
+    url(r'^account/$', auth_views.IndexView.as_view(), name='account'),
     url(r'^account/', include('django.contrib.auth.urls')),
     url(r'^account/signup/$', auth_views.CreateUSerView.as_view(), name='signup'),
     url(r'^account/signup/done/$', auth_views.RegisteredView.as_view(), name='create_user_done'),
