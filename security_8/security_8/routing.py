@@ -10,3 +10,5 @@ application = ProtocolTypeRouter({
         )
     ),
 })
+
+ASGI_APPLICATION = "security_8.routing.application"
