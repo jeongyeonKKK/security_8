@@ -43,7 +43,7 @@ t_0 = 4
 public_1_a = trust_middle(cv, At, t_0)
 public_1_b = trust_middle(cv, Bt, t_0)
 public_1_c = trust_middle(cv, Ct, t_0)
-public_1_g = cv.mul_point(t_0, G)
+public_1_g = [G, cv.mul_point(t_0, G), cv.mul_point(t_0*t_0, G)]
 #public_1_z = cv.mul_point(int(ZP.eval(t_0)), G)
 
 
@@ -117,6 +117,7 @@ class prover():
     def __init__(self, witness):
         self.witness = witness
         self.s = [1, witness, sym1.subs({x:witness}), sym2.subs({x:witness}), y.subs({x:witness})]
+        print("witness = ",self.s)
 
     def QAP(self):
         self.AT = np.dot(self.s, At)
@@ -154,7 +155,13 @@ class prover():
         self.p_n_a = self.proof_1_x(public_1_a)
         self.p_n_b = self.proof_1_x(public_1_b)
         self.p_n_c = self.proof_1_x(public_1_c)
-        self.p_n_h = cv.mul_point(int(self.HT[0]) + cv.order, G) + cv.mul_point(int(self.HT[1]), public_1_g)
+        #self.p_n_h = cv.mul_point(int(self.HT[0]) + cv.order, G) + cv.mul_point(int(self.HT[1]), public_1_g)
+        self.p_n_h = 0
+        for i in range(len(self.HT)):
+            if type(self.p_n_h) == int:
+                self.p_n_h = cv.mul_point(int(self.HT[i])+cv.order, public_1_g[i])
+            else:
+                self.p_n_h = self.p_n_h + cv.mul_point(int(self.HT[i])+cv.order, public_1_g[i])
         return self.p_n_a, self.p_n_b, self.p_n_c, self.p_n_h
 
     def get_proof_2(self):
