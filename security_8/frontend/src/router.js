@@ -4,6 +4,7 @@ import Login from "./views/Login.vue";
 import Chat from "@/views/Chat.vue";
 import SignUp from "@/views/SignUp.vue";
 import Mainpage from "@/views/Mainpage.vue";
+import SignUpResult from "@/views/SignUpResult.vue"
 
 Vue.use(Router);
 
@@ -38,6 +39,12 @@ export default new Router({
       path: "/mainpage",
       name: "Mainpage",
       component: Mainpage
+    },
+    {
+      path: "/signupresult",
+      name: "SignUpResult",
+      component: SignUpResult
     }
+
   ]
 });

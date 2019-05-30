@@ -1,7 +1,6 @@
 # vue-chat
 
 Vue 로그인 및 채팅 기능 구현
-(채팅은 Firebase를 사용)
 
 
 ## Project setup

@@ -1,7 +1,7 @@
 <template>
   <div class="container chat">
     <h2 class="text-primary text-center">Security_8</h2>
-    <h5 class="text-secondary text-center">Powered by Vue.js And firebase</h5>
+    <h5 class="text-secondary text-center">Powered by Vue.js And Django</h5>
     <div class="card">
       <div class="card-body">
         <p class="text-secondary nomessages" v-if="messages.length == 0">
