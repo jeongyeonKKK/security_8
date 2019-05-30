@@ -1,3 +1,0 @@
-stunnel stunnel/dev_https &
-python security_8/manage.py runserver &
-HTTPS=1 python security_8/manage.py runserver 8001
